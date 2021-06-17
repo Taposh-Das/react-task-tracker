@@ -1,8 +1,12 @@
+import Task from "./Task"
+
 const Tasks = ({tasks}) => {
     return (
+        // so we iterate through the tasks object
         <>
         {tasks.map((task) => (
-        <h3 key={task.id}>{task.text}</h3>
+        // and pass each task as a prop
+        <Task key={task.id} task={task}/>
         ))}  
         </>
     )

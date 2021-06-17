@@ -26,9 +26,9 @@ function App() {
   ])
 
   return (
+    //For Tasks, now we can take our tasks object and pass it in component as prop
     <div className="container">
       <Header title={"My first react app"}/>
-      // now we can take our tasks and pass them in component as prop
       <Tasks tasks={tasks} />
     </div>
   );
