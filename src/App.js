@@ -32,11 +32,18 @@ function App() {
     setTasks(tasks.filter((task) => task.id!==id))
   }
 
+  // Toggle Reminder
+  const toggleReminder = (id) => {
+    setTasks(tasks.map((task) => task.id === id ? 
+    { ...task, reminder: !task.reminder } : task))
+  }
+
   return (
     //For Tasks, now we can take our tasks object and pass it in component as prop
     <div className="container">
       <Header title={"My first react app"}/>
-      {tasks.length>0 ? <Tasks tasks={tasks} onDelete={deleteTask } />:
+      {tasks.length>0 ? <Tasks tasks={tasks} 
+      onDelete={deleteTask} onToggle={toggleReminder} />:
       ("No Task to show")}
     </div>
   );
