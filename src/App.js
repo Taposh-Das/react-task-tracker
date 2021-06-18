@@ -26,6 +26,13 @@ function App() {
     },
   ])
 
+  // Add Task
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 10000) + 1
+    const newTask = { id, ...task }
+    setTasks([...tasks, newTask])
+  }
+
   // Delete Tasl
   const deleteTask = (id) => {
     /*for each delete of task, we filter out the id on which the red cross
@@ -43,7 +50,7 @@ function App() {
     //For Tasks, now we can take our tasks object and pass it in component as prop
     <div className="container">
       <Header title={"My first react app"}/>
-      <AddTask />
+      <AddTask onAdd={addTask}/>
       {tasks.length>0 ? <Tasks tasks={tasks} 
       onDelete={deleteTask} onToggle={toggleReminder} />:
       ("No Task to show")}
