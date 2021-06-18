@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
 
 function App() {
   // now the task is part of our App.js component state
@@ -42,6 +43,7 @@ function App() {
     //For Tasks, now we can take our tasks object and pass it in component as prop
     <div className="container">
       <Header title={"My first react app"}/>
+      <AddTask />
       {tasks.length>0 ? <Tasks tasks={tasks} 
       onDelete={deleteTask} onToggle={toggleReminder} />:
       ("No Task to show")}
