@@ -27,10 +27,27 @@ function App() {
   }
 
   // Add Task
-  const addTask = (task) => {
-    const id = Math.floor(Math.random() * 10000) + 1
-    const newTask = { id, ...task }
-    setTasks([...tasks, newTask])
+  const addTask = async (task) => {
+    // this is a post request to add a task and persist in our backend i.e. json server
+    const res = await fetch('http://localhost:5000/tasks', {
+      method: 'POST',
+      // since we are adding data, we need header to specify content type
+      headers: {
+        'Content-type': 'application/json'
+      },
+      // this is the data we are sending. stringify converts javascript object to json string
+      body: JSON.stringify(task)
+    })
+
+    // the data that this retured to variable data is the new task that we added
+    const data = await res.json()
+    // we add the new data(task) along with existing tasks(...tasks)
+    setTasks([...tasks, data])
+
+
+    // const id = Math.floor(Math.random() * 10000) + 1
+    // const newTask = { id, ...task }
+    // setTasks([...tasks, newTask])
   }
 
   // Delete Task
