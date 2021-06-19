@@ -26,6 +26,14 @@ function App() {
     return data
   }
 
+  // fetch Task
+  const fetchtask = async (id) => {
+    const res = await fetch(`http://localhost:5000/tasks/${id}`)
+    const data = await res.json()
+
+    return data
+  }
+
   // Add Task
   const addTask = async (task) => {
     // this is a post request to add a task and persist in our backend i.e. json server
@@ -63,9 +71,22 @@ function App() {
   }
 
   // Toggle Reminder
-  const toggleReminder = (id) => {
+  const toggleReminder = async (id) => {
+    const taskToToggle =  await fetchtask(id)
+    const updatedTask = {...taskToToggle, reminder: !taskToToggle.reminder }
+
+    const res = await fetch(`http://localhost:5000/tasks/${id}`,{
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(updatedTask)
+    })
+
+    const data = await res.json()
+
     setTasks(tasks.map((task) => task.id === id ? 
-    { ...task, reminder: !task.reminder } : task))
+    { ...task, reminder: data.reminder } : task))
   }
 
   return (
