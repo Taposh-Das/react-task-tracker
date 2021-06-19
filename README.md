@@ -1,3 +1,62 @@
+This is a simple task tracker front end app with JSON server as backend.
+
+The codes are commited in a step by step fashion with detailed commit message. You can check the commit history to understand how each componets are related and coded. 
+
+Topics covered in this projects are as follows:
+===============================================
+Project Setup
+===============================================
+How to istall node.js, react developer tools for chrome extension and how to create a react app
+===============================================
+Frontend Development
+===============================================
+App Component and JSX
+Expressions in JSX
+How to create react components
+Component Props
+PropTypes
+Styling(inline css in react code (not recommended)
+Button Component
+Events
+Tasks Component
+Create a list with .map()
+State and useState() Hook
+Global State
+Task Component
+Icones with react-icons
+Delete Task and prop drilling
+Optional message in no tasks
+Toggle reminder and conditional styling
+Add Task Form
+Form input state (controlled components)
+Add task submit
+showAddTask state
+Button toggle
+===============================================
+Production Deplpoyment
+===============================================
+How to build react app for production deployment
+===============================================
+Backend setup
+===============================================
+JSON Server (as a mock backend for this front end restc app)
+useEffect Hook & Fetck tasks from server
+Delete task from server
+Add task to server
+Toggle reminder on server
+===============================================
+Routing
+===============================================
+Routing, footer and about
+
+This was done followinf instruction from Traversy Media. They have great educative materials. Check them out
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
