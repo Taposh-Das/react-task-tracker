@@ -33,8 +33,13 @@ function App() {
     setTasks([...tasks, newTask])
   }
 
-  // Delete Tasl
-  const deleteTask = (id) => {
+  // Delete Task
+  const deleteTask = async(id) => {
+    // this line is to delete task from json server
+    await fetch(`http://localhost:5000/tasks/${id}`,{
+      method: 'DELETE'
+    })
+
     /*for each delete of task, we filter out the id on which the red cross
     icon was clicked. and only display the rest of the tasks*/
     setTasks(tasks.filter((task) => task.id!==id))
