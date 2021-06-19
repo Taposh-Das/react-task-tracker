@@ -51,7 +51,9 @@ function App() {
   return (
     //For Tasks, now we can take our tasks object and pass it in component as prop
     <div className="container">
-      <Header title={"My first react app"}/>
+      <Header title={"My first react app"} 
+      onAdd={() => setShowAddTask (!showAddTask)} 
+      showAdd={showAddTask} />
       {showAddTask && <AddTask onAdd={addTask}/>}
       {tasks.length>0 ? <Tasks tasks={tasks} 
       onDelete={deleteTask} onToggle={toggleReminder} />:
